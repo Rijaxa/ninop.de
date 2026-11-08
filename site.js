@@ -76,3 +76,14 @@
   })();
 
 })();
+
+/* years of experience, counted from data-since="YYYY-MM" */
+(function(){
+  var now=new Date();
+  document.querySelectorAll("[data-since]").forEach(function(el){
+    var p=el.getAttribute("data-since").split("-"),y=+p[0],m=+p[1]-1;
+    var n=now.getFullYear()-y-(now.getMonth()<m?1:0);
+    if(n<1)return;
+    el.querySelectorAll("[data-l]").forEach(function(s){s.textContent=s.textContent.replace(/^\d+/,n)});
+  });
+})();
