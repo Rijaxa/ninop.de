@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Hobbys, Nino Purtseladze</title>
 <meta name="description" content="Lieblingsorte in München, Pflanzen, Illustrationen und Sport wie Schach, Schwimmen, Radfahren, Laufen, Tennis und Ski. Die Hobbys von Nino Purtseladze.">
 <link rel="canonical" href="https://ninop.de/hobbies">
@@ -75,7 +78,7 @@ html{scroll-behavior:smooth}
 .lists a:hover svg{animation:wig .6s ease-in-out}
 @keyframes wig{25%{transform:rotate(-12deg) scale(1.1)}75%{transform:rotate(12deg) scale(1.1)}}
 .back{margin-top:2rem}
-@media (max-width:720px){.plantwrap{grid-template-columns:1fr}.plantbtn{max-width:16rem}}
+@media (max-width:720px){.plantwrap{grid-template-columns:1fr}.plantbtn{max-width:16rem;margin:0 auto}}
 @media (prefers-reduced-motion:reduce){.lists a:hover svg{animation:none}}
 .sports{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--g-b) clamp(1.5rem,4vw,3rem);margin-top:var(--g-b)}
 .sp{border-top:5px solid var(--c);padding-top:1.1rem}
@@ -92,28 +95,24 @@ html{scroll-behavior:smooth}
 .fitlink a{font:650 1.15rem/1.3 var(--d);text-underline-offset:4px}
 .fitlink>span{display:block;margin-top:.2rem;color:var(--muted)}
 .lists a{padding:1rem .625rem 1.25rem}
-.pgal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.6rem,1.6vw,1rem);margin-top:calc(var(--g-b)*1.5)}
-.pg{position:relative;margin:0;aspect-ratio:1;overflow:hidden;background:#24573b;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.pg img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.pg:hover{transform:translateY(-.25rem)}.pg:hover img{transform:scale(1.06)}
+.pgal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.1rem,2.4vw,1.6rem) clamp(.6rem,1.6vw,1rem);margin-top:calc(var(--g-b)*1.5)}
+/* plant gallery: shaped photo, caption below */
+.pgal .pg{margin:0;border-radius:0;display:flex;flex-direction:column;gap:.55rem}
+.pg img{display:block;width:100%;aspect-ratio:1;height:auto;object-fit:cover;background:#24573b;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pg:hover img{transform:translateY(-.25rem)}
+.pgal .pa img{border-radius:50% 50% 0 0}.pgal .pc img{border-radius:50%}
+.pgal .pl img{border-radius:50% 0 50% 0}.pgal .pr img{border-radius:0 50% 0 50%}
+.pg figcaption{font-size:.9rem;line-height:1.35;font-weight:500;text-align:center;opacity:.92}
+
+@media (max-width:560px){.pg figcaption{font-size:.8rem}.gal figcaption{font-size:.78rem}}
 .pa{border-radius:50% 50% 0 0}.pb{border-radius:0 0 50% 50%}.pc{border-radius:50%}
 .pl{border-radius:50% 0 50% 0}.pr{border-radius:0 50% 0 50%}
-.pg figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .8rem .9rem;text-align:center;font-size:.9rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(10,30,18,.75));opacity:0;transition:opacity .2s}
-.pg:hover figcaption,.pg:focus-within figcaption{opacity:1}
-@media (hover:none){.pg figcaption{opacity:1;font-size:.78rem;padding:1.2rem .4rem .6rem}}
 @media (max-width:560px){.pgal{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){.pg,.pg img{transition:none}}
 .zbr{border-radius:calc(var(--u)*2) 0 calc(var(--u)*2) 0}
 .gal.art figure:has(img[src*="art-zebra"]) img,.gal.art figure:has(img[src*="art-laika"]) img{object-fit:contain}
 .zbr{border-radius:calc(var(--u)*1.5) 0 calc(var(--u)*1.5) 0}
 @media (max-width:560px){.gal{--g:.4rem}.igpill{font-size:.62rem}}
-/* plant captions: pill inside the safe area of each shape */
-.pg figcaption{left:50%;right:auto;bottom:12%;transform:translateX(-50%);width:max-content;max-width:72%;padding:.4rem .8rem;border-radius:.8rem;background:rgba(10,30,18,.78);line-height:1.3;font-size:.85rem}
-@media (hover:none){.pg figcaption{padding:.3rem .55rem;font-size:.7rem;max-width:80%}}
-.pg.pl figcaption{left:7%;right:auto;transform:none;max-width:62%;text-align:left;bottom:7%}
-.pg.pr figcaption{left:auto;right:7%;transform:none;max-width:62%;text-align:right;bottom:7%}
-@media (max-width:560px){.gal figcaption{font-size:.78rem}
-.pg figcaption,.pg.pl figcaption,.pg.pr figcaption{max-width:90%;font-size:.75rem;line-height:1.2;bottom:5%;padding:.3rem .5rem}.pg.pl figcaption{left:5%}.pg.pr figcaption{right:5%}}
 </style>
 <script>window.NP_T={de:"Hobbys, Nino Purtseladze",en:"Hobbies, Nino Purtseladze",ka:"ჰობები, ნინო ფურცელაძე"}</script>
 </head>
