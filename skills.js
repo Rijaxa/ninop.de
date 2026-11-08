@@ -20,7 +20,7 @@
     baf:{href:"#ausbildung",t:{de:"BAF, Ausbildung",en:"BAF, education",ka:"BAF, განათლება"}},
     plug:{href:"#erfahrung",t:{de:"Kalender- und Buchungs-Plugins, K&M Vet IT",en:"calendar and booking plugins, K&M Vet IT",ka:"კალენდრისა და დაჯავშნის პლაგინები, K&M Vet IT"}},
     bot:{href:"#sportsbuddy",t:{de:"SportsBuddy, Chatbot in Python, Projekte",en:"SportsBuddy, chatbot in Python, projects",ka:"SportsBuddy, ჩატბოტი Python-ზე, პროექტები"}},
-    art:{href:"/hobbies#kunst",t:{de:"Meine Illustrationen, Kunst auf der Hobby-Seite",en:"my illustrations, art on the hobbies page",ka:"ჩემი ილუსტრაციები, ხელოვნება ჰობების გვერდზე"}},
+    art:{href:"#kunst",t:{de:"Meine Illustrationen, Kunst bei den Hobbys",en:"my illustrations, art in the hobbies section",ka:"ჩემი ილუსტრაციები, ხელოვნება ჰობების განყოფილებაში"}},
     ph:{href:"#erfahrung",t:{de:"PlanetHome, Berufserfahrung",en:"PlanetHome, experience",ka:"PlanetHome, გამოცდილება"}},
     reel:{href:"https://www.youtube.com/watch?v=Hn9tZCwtBAA",ext:1,t:{de:"Motion-Design-Showreel auf YouTube ↗",en:"motion design showreel on YouTube ↗",ka:"მოუშენ დიზაინის შოურილი YouTube-ზე ↗"}},
     mog:{href:"#mogvel",t:{de:"Mogvel, Startup-Projekt, Projekte",en:"Mogvel, startup project, projects",ka:"Mogvel, სტარტაპ-პროექტი, პროექტები"}},
