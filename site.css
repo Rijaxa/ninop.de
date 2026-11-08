@@ -504,3 +504,9 @@ html{scroll-behavior:smooth}
 .gal.art figure:has(img[src*="art-zebra"]) img,.gal.art figure:has(img[src*="art-laika"]) img{object-fit:contain}
 .zbr{border-radius:calc(var(--u)*1.5) 0 calc(var(--u)*1.5) 0}
 @media (max-width:560px){.gal{--g:.4rem}.igpill{font-size:.62rem}}
+/* Munich lists: compact links with small icon */
+.mun .lists{grid-template-columns:repeat(3,minmax(0,1fr));gap:.15rem 1.5rem}
+.lists a{display:flex;align-items:center;gap:.65rem;border:0;border-radius:.4rem;padding:.6rem .4rem;margin:0 -.4rem}
+.lists a svg{width:1.05rem;height:1.05rem;padding:.4rem;border-radius:.5rem;margin:0;box-shadow:none;flex:none}
+.lists b{font:650 1.1rem/1.2 var(--d);letter-spacing:0}
+@media (max-width:560px){.mun .lists{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 .75rem}.lists b{font-size:1rem}}
