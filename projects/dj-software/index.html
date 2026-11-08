@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+    <meta name="description" content="Live-Demo: Otodecks, DJ-Software als Web-Nachbau, Studienprojekt von Nino Purtseladze.">
+<title>Otodecks, DJ Software Demo, Nino Purtseladze</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../demo-bar.css">
+</head>
+<body>
+<div class="dbar" data-lang="de">
+  <a href="../../index.html#projekte">&larr; <span data-l="de">Zurück zu Nino Purtseladze</span><span data-l="en">Back to Nino Purtseladze</span><span data-l="ka">ნინო ფურცელაძესთან დაბრუნება</span></a>
+  <span class="dmid"><b>Demo</b> <span data-l="de">Web-Nachbau der Desktop-App (C++, JUCE). Ton an, dann PLAY drücken.</span><span data-l="en">Web rebuild of the desktop app (C++, JUCE). Sound on, then press PLAY.</span><span data-l="ka">დესკტოპ აპის (C++, JUCE) ვებ ვერსია. ჩართეთ ხმა და დააჭირეთ PLAY-ს.</span></span>
+  <a href="https://github.com/Rijaxa/DJ-Software" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+<div class="app" id="app">
+  <section class="deck" data-deck="1"></section>
+  <section class="deck" data-deck="2"></section>
+
+  <section class="panel lib">
+    <header class="phead">
+      <h2>Music Library</h2>
+      <label class="btn small">Load Music<input type="file" accept="audio/*" multiple hidden id="libFile"></label>
+    </header>
+    <div class="tablewrap">
+      <table class="tbl" id="libTable">
+        <thead><tr><th>File Name</th><th>Track Name</th><th>Artist</th><th>Duration</th><th>Play</th><th>Deck</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel rec">
+    <header class="phead">
+      <h2>Recordings</h2>
+      <div class="phctl">
+        <select id="recSource" aria-label="Recording source">
+          <option value="mic">Microphone</option>
+          <option value="1">Deck 1</option>
+          <option value="2">Deck 2</option>
+          <option value="master" selected>Master Mix</option>
+        </select>
+        <label class="vol">Vol <input type="range" id="recVol" min="0" max="3" step="0.01" value="0.75"></label>
+        <button class="btn small recbtn" id="recBtn">REC</button>
+      </div>
+    </header>
+    <div class="tablewrap">
+      <table class="tbl" id="recTable">
+        <thead><tr><th>Sample Name</th><th>Source</th><th>Duration</th><th>Play</th><th>Volume</th><th>Deck</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="empty" id="recEmpty">No recordings yet. Pick a source and press REC.</p>
+    </div>
+  </section>
+
+  <footer class="session">
+    <button class="btn" id="setBtn">RECORD SET</button>
+    <button class="btn" id="exportBtn">EXPORT PLAYLIST</button>
+    <label class="btn">IMPORT PLAYLIST<input type="file" accept=".m3u,.txt" hidden id="importFile"></label>
+  </footer>
+</div>
+
+<template id="deckTpl">
+  <div class="row3">
+    <button class="btn play">PLAY</button>
+    <button class="btn loop" aria-pressed="false">LOOP</button>
+    <label class="btn load">LOAD<input type="file" accept="audio/*" hidden></label>
+  </div>
+  <div class="dials">
+    <div class="dialbox"><canvas class="dial vol" width="160" height="160" tabindex="0" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="5"></canvas><span class="dval vv">1.00</span><span class="dlab">VOLUME</span></div>
+    <div class="dialbox"><canvas class="dial spd" width="160" height="160" tabindex="0" role="slider" aria-label="Speed" aria-valuemin="0.1" aria-valuemax="5"></canvas><span class="dval sv">1.00</span><span class="dlab">SPEED</span></div>
+  </div>
+  <div class="tname">No track loaded</div>
+  <div class="ttime">00:00 / 00:00</div>
+  <canvas class="wave" height="120"></canvas>
+  <div class="cues"></div>
+  <div class="row3">
+    <button class="btn clear">CLEAR CUES</button>
+    <button class="btn tap">TAP BPM</button>
+    <div class="bpm">BPM: --</div>
+  </div>
+</template>
+
+<script src="../demo-bar.js"></script>
+<script src="peaks.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
