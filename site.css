@@ -532,3 +532,11 @@ html{scroll-behavior:smooth}
 @media (hover:none){.sidenav .sl{display:none}.sidenav a:hover{transform:none}}
 /* keep content clear of the floating nav on smaller screens */
 @media (max-width:1359px){main .wrap,.contact .wrap{padding-right:2.9rem}}
+/* sport cards: compact on phones, small icon next to the title */
+@media (max-width:560px){
+.sports,.sportlist{gap:1.4rem!important}
+.sp{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:.65rem;align-items:center;padding-top:.8rem;border-top-width:3px}
+.sp svg{width:1.15rem;height:1.15rem;padding:.45rem;border-radius:.55rem;margin:0;box-shadow:.15rem .15rem 0 color-mix(in srgb,var(--c) 55%,#14161A)}
+.sp h3{font-size:1.2rem;margin:0}
+.sp p{grid-column:1/-1;margin-top:.55rem;font-size:.95rem}
+}
