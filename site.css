@@ -510,3 +510,15 @@ html{scroll-behavior:smooth}
 .lists a svg{width:1.05rem;height:1.05rem;padding:.4rem;border-radius:.5rem;margin:0;box-shadow:none;flex:none}
 .lists b{font:650 1.1rem/1.2 var(--d);letter-spacing:0}
 @media (max-width:560px){.mun .lists{grid-template-columns:repeat(3,minmax(0,1fr));gap:.25rem .5rem}.lists a{flex-direction:column;gap:.4rem;padding:.6rem .2rem;margin:0;text-align:center}.lists b{font-size:.85rem;line-height:1.2}.lists a svg{width:1.3rem;height:1.3rem;padding:.55rem;border-radius:.7rem}}
+/* floating section nav */
+.sidenav{position:fixed;right:1.1rem;top:50%;transform:translate(.5rem,-50%);display:none;flex-direction:column;gap:.45rem;z-index:900;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.sidenav.show{opacity:1;pointer-events:auto;transform:translate(0,-50%)}
+.sidenav a{position:relative;display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--ink);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:background .2s,color .2s,transform .2s}
+.sidenav a svg{width:1.2rem;height:1.2rem}
+.sidenav a:hover{transform:scale(1.08)}
+.sidenav a.on{background:var(--mustard);color:var(--ink);box-shadow:0 0 0 2px var(--ink),0 2px 8px rgba(0,0,0,.18)}
+.sidenav .sl{position:absolute;right:calc(100% + .6rem);top:50%;transform:translate(.3rem,-50%);white-space:nowrap;background:var(--ink);color:#fff;font:600 .85rem/1 var(--d);padding:.45rem .65rem;border-radius:.4rem;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+.sidenav a:hover .sl,.sidenav a:focus-visible .sl{opacity:1;transform:translate(0,-50%)}
+.sidenav a:focus-visible{outline:2px solid var(--mustard);outline-offset:3px}
+@media (min-width:1360px){.sidenav{display:flex}}
+@media (prefers-reduced-motion:reduce){.sidenav,.sidenav a,.sidenav .sl{transition:none}}

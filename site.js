@@ -87,3 +87,39 @@
     el.querySelectorAll("[data-l]").forEach(function(s){s.textContent=s.textContent.replace(/^\d+/,n)});
   });
 })();
+
+/* floating section nav on the right (one-pager only) */
+(function(){
+  if(!document.getElementById("erfahrung"))return;
+  var S='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+  var items=[
+    ["erfahrung",'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/>',{de:"Erfahrung",en:"Experience",ka:"გამოცდილება"}],
+    ["skills",'<rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="m7 9.5 3 2.5-3 2.5M12.5 15H17"/>',{de:"Skills",en:"Skills",ka:"უნარები"}],
+    ["projekte",'<path d="M8 8l-4.5 4L8 16M16 8l4.5 4-4.5 4M13.5 5l-3 14"/>',{de:"Projekte",en:"Projects",ka:"პროექტები"}],
+    ["ausbildung",'<path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c1.5 1.6 3.3 2.5 5.5 2.5s4-.9 5.5-2.5V11M21.5 9v5"/>',{de:"Ausbildung",en:"Education",ka:"განათლება"}],
+    ["hobbys",'<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/>',{de:"Hobbys",en:"Hobbies",ka:"ჰობები"}],
+    ["kontakt",'<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>',{de:"Kontakt",en:"Contact",ka:"კონტაქტი"}]
+  ];
+  var nav=document.createElement("nav");nav.className="sidenav";nav.setAttribute("aria-label","Abschnitte");
+  var links={};
+  items.forEach(function(it){
+    if(!document.getElementById(it[0]))return;
+    var a=document.createElement("a");a.href="#"+it[0];
+    a.innerHTML=S+it[1]+'</svg><span class="sl"><span data-l="de">'+it[2].de+'</span><span data-l="en">'+it[2].en+'</span><span data-l="ka">'+it[2].ka+'</span></span>';
+    nav.appendChild(a);links[it[0]]=a;
+  });
+  document.body.appendChild(nav);
+  /* hobby sub-sections count as "hobbys" */
+  var owner={muenchen:"hobbys",pflanzen:"hobbys",kunst:"hobbys",sport:"hobbys"};
+  var watch=Object.keys(links).concat(Object.keys(owner)).map(function(id){return document.getElementById(id)}).filter(Boolean);
+  var cur=null;
+  function atEnd(){return innerHeight+scrollY>=document.documentElement.scrollHeight-4}
+  function set(id){if(id&&links.kontakt&&atEnd())id="kontakt";if(cur===id)return;cur=id;for(var k in links)links[k].classList.toggle("on",k===id)}
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id=e.target.id;set(owner[id]||id)}})},{rootMargin:"-45% 0px -50% 0px"});
+    watch.forEach(function(el){io.observe(el)});
+  }
+  var hero=document.querySelector(".hero");
+  function vis(){nav.classList.toggle("show",!hero||hero.getBoundingClientRect().bottom<innerHeight*.4);if(hero&&hero.getBoundingClientRect().bottom>=innerHeight*.4)set(null);else if(links.kontakt&&atEnd())set("kontakt")}
+  addEventListener("scroll",vis,{passive:true});vis();
+})();
