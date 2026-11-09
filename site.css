@@ -522,3 +522,13 @@ html{scroll-behavior:smooth}
 .sidenav a:focus-visible{outline:2px solid var(--mustard);outline-offset:3px}
 @media (min-width:1360px){.sidenav{display:flex}}
 @media (prefers-reduced-motion:reduce){.sidenav,.sidenav a,.sidenav .sl{transition:none}}
+/* floating section nav: also on smaller screens, smaller */
+@media (max-width:1359px){
+.sidenav{display:flex;right:.4rem;gap:.35rem}
+.sidenav a{width:2.05rem;height:2.05rem;box-shadow:0 1px 5px rgba(0,0,0,.22)}
+.sidenav a svg{width:.95rem;height:.95rem}
+.sidenav a.on{box-shadow:0 0 0 2px var(--ink),0 1px 5px rgba(0,0,0,.22)}
+}
+@media (hover:none){.sidenav .sl{display:none}.sidenav a:hover{transform:none}}
+/* keep content clear of the floating nav on smaller screens */
+@media (max-width:1359px){main .wrap,.contact .wrap{padding-right:2.9rem}}
