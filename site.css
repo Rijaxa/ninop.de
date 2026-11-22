@@ -349,7 +349,10 @@ a.il:hover{text-decoration-thickness:2px}
 .rtxt small{font-size:.85rem;color:#ffffffb3}
 .rarr{margin-left:auto;font-size:1.3rem;color:var(--mustard)}
 .skillreel{margin-top:var(--g-b)}
-.teal .reelbtn{box-shadow:.35rem .35rem 0 var(--ink)}
+.teal .reelbtn{background:#FAF9F6;color:var(--ink);border:2px solid var(--ink);box-shadow:.35rem .35rem 0 var(--ink)}
+.teal .reelbtn:hover{box-shadow:.45rem .5rem 0 var(--ink)}
+.teal .reelbtn .rtxt small{color:#14161Ab3}
+.teal .reelbtn .rarr{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){.reelbtn{transition:none}}
 .treel{display:inline-block;margin:.1rem 0 .8rem}
 
